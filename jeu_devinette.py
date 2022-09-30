@@ -10,22 +10,31 @@ while jouer:
 
     not_found = True
     while not_found:
+        try:
+            user_guess = int(input("Quelle numéro devinez-vous?\n"))
 
-        print(random_number)
-        user_guess = int(input("Quelle numéro devinez-vous?\n"))
+        except:
+            print("Veuillez ecrire un nombre s'il vous plaît.")
 
-        if user_guess < random_number:
-            print("Vôtre numéro est trop petit")
-            nb_essaie += 1
+        else:
 
-        elif user_guess > random_number:
-            print("Vôtre numéro est trop grand.")
-            nb_essaie += 1
+            if user_guess < random_number:
+                print("Vôtre numéro est trop petit")
+                nb_essaie += 1
 
-        elif user_guess == random_number:
-            print(f"Bravo! Vous avez devinez le numéro en {nb_essaie} essaies.")
-            rejouer = input("Voulez-vous rejouer? (y/n)")
-            if rejouer == "y":
-                pass
-            elif rejouer == "n":
-                break
+            elif user_guess > random_number:
+                print("Vôtre numéro est trop grand.")
+                nb_essaie += 1
+
+            elif user_guess == random_number:
+                print(f"Bravo! Vous avez devinez le numéro en {nb_essaie} essaies.")
+                rejouer = input("Voulez-vous rejouer? (y/n)")
+                not_found = False
+
+                if rejouer == "y":
+                    jouer = True
+                    nb_essaie == 0
+
+                elif rejouer == "n":
+                    print("Au revoir")
+                    jouer = False
