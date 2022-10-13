@@ -1,5 +1,5 @@
 # Programme de jeu de devinette entre 0 à 100
-#allo
+#allosg4r
 
 from random import *
 
